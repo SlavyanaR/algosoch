@@ -294,11 +294,11 @@ export const ListPage: React.FC = () => {
             extraClass={ListPageStyles.button_big}
             onClick={handleClickAddByIndex}
             disabled={
-              !inputValue
-              || !inputIndex
+              listArray.length === 0
               || disabled
               || inputIndex > listArray.length - 1
-              || listArray.length >= maxINDEX
+              || inputIndex < 0
+              || listArray.length >= maxINDEX - 1
             }
             isLoader={isLoader.appendByIndex}
           />
@@ -310,7 +310,7 @@ export const ListPage: React.FC = () => {
               listArray.length === 0
               || disabled
               || inputIndex > listArray.length - 1
-              || inputIndex < 1
+              || inputIndex < 0
             }
             isLoader={isLoader.removeFrom}
           />

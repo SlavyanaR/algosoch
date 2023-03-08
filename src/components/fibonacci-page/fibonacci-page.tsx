@@ -55,7 +55,7 @@ export const FibonacciPage: React.FC = () => {
         />
         <Button
           text="Рассчитать"
-          onClick={onClickForm}
+          type='submit'
           disabled={inputLimit}
           isLoader={isLoader}
         />
