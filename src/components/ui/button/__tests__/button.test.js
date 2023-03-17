@@ -1,7 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { render, screen, fireEvent } from '@testing-library/react';
-
 import { Button } from '../button';
 import { Direction } from '../../../../types/direction';
 
@@ -51,7 +50,7 @@ describe('Тестирование компонента Button', () => {
 
 	it('Кнопка списка большая рендерится без ошибок', () => {
 		const button = TestRenderer
-			.create(<Button linkedList='big'/>)
+			.create(<Button linkedList='big' />)
 			.toJSON()
 		expect(button).toMatchSnapshot()
 	})
