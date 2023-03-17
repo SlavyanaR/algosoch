@@ -95,9 +95,10 @@ export const QueuePage: React.FC = () => {
 
   return (
     <SolutionLayout title="Очередь">
-      <form className={QueePageStyles.form} onSubmit={(e) => e.preventDefault()} >
+      <form className={QueePageStyles.form} onSubmit={(e) => e.preventDefault()} data-cy="form">
         <div className={QueePageStyles.container}>
           <Input
+            data-cy="input"
             extraClass="mr-6"
             onChange={onChange}
             isLimitText={true}
@@ -106,6 +107,7 @@ export const QueuePage: React.FC = () => {
             disabled={isLoader.disabled}
           />
           <Button
+            data-cy="add"
             text="Добавить"
             extraClass="mr-6"
             onClick={() => enqueue(inputValue)}
@@ -113,6 +115,7 @@ export const QueuePage: React.FC = () => {
             disabled={!inputValue || tail === SIZE || isLoader.disabled}
           />
           <Button
+            data-cy="remove"
             text="Удалить"
             onClick={() => dequeue()}
             isLoader={isLoader.removeValue}
@@ -120,10 +123,11 @@ export const QueuePage: React.FC = () => {
           />
         </div>
         <Button
+          data-cy="clear"
           text="Очистить"
           onClick={() => clear()}
           isLoader={isLoader.clearValue}
-          disabled={(head === 0 && tail === 0 )|| isLoader.disabled}
+          disabled={(head === 0 && tail === 0) || isLoader.disabled}
         />
       </form>
       <ul className={QueePageStyles.list}>

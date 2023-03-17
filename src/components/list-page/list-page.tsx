@@ -234,8 +234,9 @@ export const ListPage: React.FC = () => {
 
   return (
     <SolutionLayout title="Связный список">
-      <form className={ListPageStyles.form} onSubmit={(e) => e.preventDefault()} >
+      <form className={ListPageStyles.form} onSubmit={(e) => e.preventDefault()} data-cy="form">
         <Input
+          data-cy="input"
           extraClass={`${ListPageStyles.input} mr-6`}
           placeholder="Введите значение"
           onChange={onChangeValue}
@@ -246,6 +247,7 @@ export const ListPage: React.FC = () => {
         />
         <div className={ListPageStyles.button_container}>
           <Button
+            data-cy="add_head"
             text="Добавить в head"
             extraClass={ListPageStyles.button_small}
             onClick={handleClickAddHead}
@@ -253,6 +255,7 @@ export const ListPage: React.FC = () => {
             isLoader={isLoader.insertInBegin}
           />
           <Button
+            data-cy="add"
             text="Добавить в tail"
             extraClass={ListPageStyles.button_small}
             onClick={handleClickAddTail}
@@ -260,6 +263,7 @@ export const ListPage: React.FC = () => {
             isLoader={isLoader.insertAtEnd}
           />
           <Button
+            data-cy="remove_head"
             text="Удалить из head"
             extraClass={ListPageStyles.button_small}
             onClick={handleClickRemoveHead}
@@ -267,6 +271,7 @@ export const ListPage: React.FC = () => {
             isLoader={isLoader.removeHead}
           />
           <Button
+            data-cy="remove"
             text="Удалить из tail"
             extraClass={ListPageStyles.button_small}
             onClick={handleClickRemoveTail}
@@ -275,8 +280,9 @@ export const ListPage: React.FC = () => {
           />
         </div>
       </form>
-      <form className={ListPageStyles.form} onSubmit={(e) => e.preventDefault()} >
+      <form className={ListPageStyles.form} onSubmit={(e) => e.preventDefault()} data-cy="form__by_index">
         <Input
+          data-cy="index"
           type="number"
           maxLength={maxLEN}
           max={maxINDEX}
@@ -290,6 +296,7 @@ export const ListPage: React.FC = () => {
         />
         <div className={ListPageStyles.button_container}>
           <Button
+            data-cy="add_by_index"
             text="Добавить по индексу"
             extraClass={ListPageStyles.button_big}
             onClick={handleClickAddByIndex}
@@ -303,6 +310,7 @@ export const ListPage: React.FC = () => {
             isLoader={isLoader.appendByIndex}
           />
           <Button
+            data-cy="remove_by_index"
             text="Удалить по индексу"
             extraClass={ListPageStyles.button_big}
             onClick={handleClickRemoveByIndex}

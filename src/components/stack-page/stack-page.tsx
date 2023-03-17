@@ -86,17 +86,19 @@ export const StackPage: React.FC = () => {
 
   return (
     <SolutionLayout title="Стек">
-      <form className={StackPageSlyles.form} onSubmit={(e) => e.preventDefault()}>
+      <form className={StackPageSlyles.form} onSubmit={(e) => e.preventDefault()} data-cy="form">
         <div className={StackPageSlyles.container}>
           <Input
-          extraClass="mr-6"
-          onChange={onChange}
-          isLimitText={true}
-          maxLength={maxLEN}
-          value={inputValue}
-          disabled={isLoader.disabled || stackArray.length > maxSIZE}
+            data-cy="input"
+            extraClass="mr-6"
+            onChange={onChange}
+            isLimitText={true}
+            maxLength={maxLEN}
+            value={inputValue}
+            disabled={isLoader.disabled || stackArray.length > maxSIZE}
           />
           <Button
+            data-cy="add"
             text="Добавить"
             extraClass="mr-6"
             onClick={() => push(inputValue)}
@@ -104,6 +106,7 @@ export const StackPage: React.FC = () => {
             disabled={!inputValue || isLoader.disabled || stackArray.length > maxSIZE}
           />
           <Button
+            data-cy="remove"
             text="Удалить"
             extraClass="mr-6"
             onClick={() => pop()}
@@ -112,6 +115,7 @@ export const StackPage: React.FC = () => {
           />
         </div>
         <Button
+          data-cy="clear"
           text="Очистить"
           onClick={() => clear()}
           isLoader={isLoader.clearValue}
