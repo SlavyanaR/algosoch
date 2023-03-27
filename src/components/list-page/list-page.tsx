@@ -320,7 +320,7 @@ export const ListPage: React.FC = () => {
               || inputIndex > listArray.length - 1
               || inputIndex < 0
             }
-            isLoader={isLoader.removeFrom}
+          //isLoader={isLoader.removeFrom}
           />
         </div>
       </form>
@@ -349,7 +349,7 @@ export const ListPage: React.FC = () => {
                 <ArrowIcon fill={item.state !== ElementStates.Changing ? "#0032FF" : "#d252e1"} />}
             </li>)
         })}
-      </ul>F
+      </ul>
     </SolutionLayout>
   );
 };
