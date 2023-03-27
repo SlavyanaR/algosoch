@@ -16,25 +16,25 @@ export const StringComponent: React.FC = () => {
   const [reversArray, setReversArray] = useState<Array<string>>([]);
 
   const reversString = async (string: string): Promise<string[]> => {
-    const arrayLetters = string.split('');
-    let end = arrayLetters.length;
+    const arrayOfLetters = string.split('');
+    let end = arrayOfLetters.length;
 
     setCurrentIndex(0);
     setIsLoader(true);
-    setReversArray([...arrayLetters]);
+    setReversArray([...arrayOfLetters]);
     await delay(DELAY_IN_MS);
 
     for (let i = 0; i < Math.floor(end / 2); i++) {
-      swap(arrayLetters, i, end - 1);
+      swap(arrayOfLetters, i, end - 1);
       setCurrentIndex(i => i + 1);
-      setReversArray([...arrayLetters]);
+      setReversArray([...arrayOfLetters]);
       await delay(DELAY_IN_MS);
     }
 
     setCurrentIndex(i => i + 1);
     setIsLoader(false);
 
-    return arrayLetters;
+    return arrayOfLetters;
   }
 
   const onChange = (e: FormEvent<HTMLInputElement>): void => {
@@ -50,8 +50,9 @@ export const StringComponent: React.FC = () => {
 
   return (
     <SolutionLayout title="Строка">
-      <form className={StringStyles.form} onSubmit={onClickRevers}>
+      <form className={StringStyles.form} onSubmit={onClickRevers} data-cy="form">
         <Input
+          data-cy="input"
           extraClass="mr-6"
           isLimitText={true}
           maxLength={maxLEN}
@@ -62,8 +63,9 @@ export const StringComponent: React.FC = () => {
         <Button
           text="Развернуть"
           isLoader={isLoader}
-          type='submit'
+          data-cy='submit'
           disabled={!inputValue}
+          onClick={onClickRevers}
         />
       </form>
       <ul className={StringStyles.list}>

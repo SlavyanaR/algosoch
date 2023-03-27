@@ -59,6 +59,7 @@ export const FibonacciPage: React.FC = () => {
           data-cy='submit'
           disabled={inputLimit}
           isLoader={isLoader}
+          onClick={onClickForm}
         />
       </form>
       <ul className={FibonacciPageStyles.list} style={justifyStyle}>
