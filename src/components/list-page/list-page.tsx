@@ -136,6 +136,7 @@ export const ListPage: React.FC = () => {
     setIsLoader({ ...isLoader, removeTail: false });
     setDisabled(false);
   }
+
   const onChangeIndex = (e: FormEvent<HTMLInputElement>): void => {
     const number = e.currentTarget.value.trim();
     setInputIndex(Number(number));
@@ -231,7 +232,6 @@ export const ListPage: React.FC = () => {
     setInputIndex(1);
   }
 
-
   return (
     <SolutionLayout title="Связный список">
       <form className={ListPageStyles.form} onSubmit={(e) => e.preventDefault()} data-cy="form">
@@ -298,16 +298,15 @@ export const ListPage: React.FC = () => {
           <Button
             data-cy="add_by_index"
             text="Добавить по индексу"
-            extraClass={ListPageStyles.button_big}
+            extraClass={`${ListPageStyles.button_big} mr-6`}
             onClick={handleClickAddByIndex}
             disabled={
-              listArray.length === 0
+              !inputValue
+              || !inputIndex
               || disabled
               || inputIndex > listArray.length - 1
-              || inputIndex < 0
-              || listArray.length >= maxINDEX - 1
+              || listArray.length >= maxINDEX
             }
-            isLoader={isLoader.appendByIndex}
           />
           <Button
             data-cy="remove_by_index"
@@ -320,7 +319,6 @@ export const ListPage: React.FC = () => {
               || inputIndex > listArray.length - 1
               || inputIndex < 0
             }
-          //isLoader={isLoader.removeFrom}
           />
         </div>
       </form>
